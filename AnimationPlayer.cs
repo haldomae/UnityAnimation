@@ -61,16 +61,19 @@ public class AnimationPlayer : MonoBehaviour
         // ジャンプ中でない場合は別のアニメーションを作成
         if(!isJumping)
         {
-            // 何もキーが押されていないときには待機モーション再生
-            animationComponent.Play("Idle");
+
+            // WASDキーを押している間は走るアニメーション再生
+            if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || 
+                Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                // 走るモーション再生
+                animationComponent.Play("Run");
+            } else {
+                // 何もキーが押されていないときには待機モーション再生
+                animationComponent.Play("Idle");
+            }
         }
-        // WASDキーを押している間は走るアニメーション再生
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || 
-        Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
-        {
-            // 走るモーション再生
-            animationComponent.Play("Run");
-        }
+
 
 
     }
