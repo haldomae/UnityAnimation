@@ -21,6 +21,9 @@ public class CoinCollect : MonoBehaviour
         // プレイヤーに当たった場合(Playerのタグが付いている場合)
         if(other.CompareTag("Player"))
         {
+            // スコアを加算
+            GameManager.Instance.AddScore(1);
+
             Debug.Log("コインに当たった");
 
             // コインを削除
