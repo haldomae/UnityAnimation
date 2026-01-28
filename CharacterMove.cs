@@ -24,6 +24,25 @@ public class CharactorMove : MonoBehaviour
             transform.position += 
             Vector3.forward * moveSpeed * Time.deltaTime;
         }
+        // Sキーが押された間、後方に移動
+        if(Input.GetKey(KeyCode.S)){
+            // Vector3.back = new Vector3(0,0,-1)
+            transform.position += 
+            Vector3.back * moveSpeed * Time.deltaTime;
+        }
 
+        // Aキーが押された間、左方向に移動
+        if(Input.GetKey(KeyCode.A)){
+            // Vector3.left = new Vector3(-1,0,0)
+            transform.position += 
+            Vector3.left * moveSpeed * Time.deltaTime;
+        }
+
+        // Dキーが押された間、右方向に移動
+        if(Input.GetKey(KeyCode.D)){
+            // Vector3.right = new Vector3(1,0,0)
+            transform.position += 
+            Vector3.right * moveSpeed * Time.deltaTime;
+        }
     }
 }
