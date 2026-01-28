@@ -30,6 +30,8 @@ public class CharactorMove : MonoBehaviour
 
         // 移動方向がある場合のみ処理
         if(moveDirection.magnitude > 0.1f){
+            // 移動方向を正規化(長さを1にする)
+            moveDirection.Normalize();
             // 座標移動
             transform.position += 
             moveDirection * moveSpeed * Time.deltaTime;
