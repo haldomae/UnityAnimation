@@ -22,6 +22,9 @@ public class CoinCollect : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("コインに当たった");
+
+            // コインを削除
+            Destroy(gameObject);
         }
     }
 }
