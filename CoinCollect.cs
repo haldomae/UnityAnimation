@@ -18,6 +18,10 @@ public class CoinCollect : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("コインに当たった");
+        // プレイヤーに当たった場合(Playerのタグが付いている場合)
+        if(other.CompareTag("Player"))
+        {
+            Debug.Log("コインに当たった");
+        }
     }
 }
