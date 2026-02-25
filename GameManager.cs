@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     // 現在のスコア
     private int score = 0;
 
+    // CoinSpawnerを使えるようにしておく
+    public CoinSpawner coinSpawner;
+
     // シングルトンの初期化
     void Awake()
     {
@@ -42,5 +45,18 @@ public class GameManager : MonoBehaviour
     public int GetScore()
     {
         return score;
+    }
+
+    // ゲームをリセットするメソッド
+    public void RespawnCoins()
+    {
+        // スコアリセット
+        score = 0;
+
+        // コインを再生成
+        if(coinSpawner != null)
+        {
+            coinSpawner.RespawnCoins();
+        }
     }
 }

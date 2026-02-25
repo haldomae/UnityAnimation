@@ -17,6 +17,17 @@ public class CoinSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SpawnCoin();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    void SpawnCoin()
+    {
         // コインを指定した個数生成
         for(int i = 0; i < coinCount; i++)
         {
@@ -47,9 +58,15 @@ public class CoinSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    // コインリセット
+    public void RespawnCoins()
     {
-        
+        // 既に置かれているコインを全て削除
+        foreach(GameObject coin in GameObject.FindGameObjectsWithTag("Coin"))
+        {
+            Destroy(coin);
+        }
+        // 新しいコインを生成
+        SpawnCoin();
     }
 }
